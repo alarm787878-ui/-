@@ -1,13 +1,19 @@
 <!doctype html>
 <html lang="ko"><head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LGY5X78HQT"></script>
+<!-- GitHub Pages 방문 통계 -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  // 로컬 파일과 localhost에서는 Google 태그를 불러오지 않는다.
+  if (window.location.hostname.endsWith('.github.io')) {
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function(){window.dataLayer.push(arguments);};
+    window.gtag('js', new Date());
+    window.gtag('config', 'G-LGY5X78HQT');
 
-  gtag('config', 'G-LGY5X78HQT');
+    const tag = document.createElement('script');
+    tag.async = true;
+    tag.src = 'https://www.googletagmanager.com/gtag/js?id=G-LGY5X78HQT';
+    document.head.append(tag);
+  }
 </script>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>체스인사이드 오프닝 분류</title>
